@@ -1,0 +1,13 @@
+* create requirements file
+* build docker image
+#+begin_src bash
+docker build -t django_jwt .
+#+end_src
+* initialize django project
+#+begin_src bash
+docker run  --rm \
+ -v "$(PWD)":/usr/src/myapp django_jwt django-admin startproject DjangoJWT .
+
+docker run -it \
+ -v "$(PWD)":/usr/src/myapp django_jwt django-admin startproject DjangoJWT .
+#+end_src
