@@ -8,3 +8,21 @@ docker build -t django_jwt .
 docker run  --rm \
  -v "$(PWD)":/code django_jwt django-admin startproject DjangoJWT .
 #+end_src
+* initialize app
+#+begin_src bash
+docker run  --rm \
+ -v "$(PWD)":/code django_jwt python manage.py startapp jwt_auth
+#+end_src
+* migrate collections
+#+begin_src bash
+docker run  --rm \
+ -v "$(PWD)":/code django_jwt python manage.py migrate
+#+end_src
+* start project
+#+begin_src bash
+docker run  --rm \
+ -v "$(PWD)":/code -P django_jwt python manage.py runserver 0.0.0.0:8000
+
+docker run  --rm \
+ -v "$(PWD)":/code -p 8000:8000 django_jwt python manage.py runserver 0.0.0.0:8000
+#+end_src
