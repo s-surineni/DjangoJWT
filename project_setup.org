@@ -25,4 +25,15 @@ docker run  --rm \
 
 docker run  --rm \
  -v "$(PWD)":/code -p 8000:8000 django_jwt python manage.py runserver 0.0.0.0:8000
+
+docker run  --rm \
+ -v "$(PWD)":/code -p 8000:8000 django_jwt
+#+end_src
+* make api call
+#+begin_src bash
+http http://127.0.0.1:8000/hello/ 'Authorization: Token '$token
+#+end_src
+* try get token endpoint
+#+begin_src bash
+http post http://127.0.0.1:8000/api-token-auth/ username=<username> password=<pwd>
 #+end_src

@@ -1,5 +1,5 @@
 from django.urls import path
-from myapi.core import views
+from jwt_auth import views
 
 
 urlpatterns = [
