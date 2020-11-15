@@ -37,3 +37,7 @@ http http://127.0.0.1:8000/hello/ 'Authorization: Token '$token
 #+begin_src bash
 http post http://127.0.0.1:8000/api-token-auth/ username=<username> password=<pwd>
 #+end_src
+* call api
+#+begin_src bash
+http http://127.0.0.1:8000/hello/ 'Authorization: Bearer '$token
+#+end_src
